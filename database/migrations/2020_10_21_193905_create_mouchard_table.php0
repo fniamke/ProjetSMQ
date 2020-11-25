@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateMouchardTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('mouchard', function (Blueprint $table) {
+            $table->increments('NumId');
+            $table->dateTime('DateEvmt');
+            $table->string('NomEmploye');
+            $table->integer('TypeAction');
+            $table->string('Action');
+            $table->string('ValAncienne');
+            $table->string('ValNouveau');
+            $table->string('Poste');
+            
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('mouchard');
+    }
+}
